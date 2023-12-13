@@ -1,0 +1,54 @@
+[project]
+name = "my-pdm-project-cwprogram-test"
+version = "1.0.1"
+description = "A tutorial package for building python projects with PDM"
+keywords = ["tutorial", "pdm"]
+authors = [
+    {name = "Chris White", email = "me@cwprogram.com"},
+]
+dependencies = [
+    "numpy>=1.25.2",
+    "requests>=2.31.0",
+]
+requires-python = ">=3.11"
+readme = "README.md"
+license = {text = "MIT"}
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Operating System :: OS Independent",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3.11",
+  "Topic :: Education :: Testing"
+]
+
+[project.urls]
+Homepage = "https://dev.to/cwprogram"
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "tox>=4.11.4",
+    "tox-pdm>=0.7.0",
+]
+lint = [
+    "flake8>=6.1.0",
+    "pylint>=3.0.1",
+]
+testing = [
+    "pytest>=7.4.2",
+    "pytest-cov>=4.1.0",
+    "requests-mock>=1.11.0",
+]
+docs = [
+    "sphinx>=7.2.6",
+]
+
+[tool.pylint.MASTER]
+ignore-paths = [ "^.venv/.*$", "^.tox/.*$", "^docs/*" ]
+
+[tool.bandit]
+exclude_dirs = [".venv"]
